@@ -8,13 +8,13 @@ console.log("Started");
 
 
 (async () => {
-    console.log('Loading cocoSsd..');
+    
     const content = document.getElementById('content');
     const predictionList = document.getElementById('predictionList');
     const webcam = await tf.webcam(webcamElement);
     // Load the model.
     coco = await cocoSsd.load();
-    console.log('Successfully loaded model');
+    
     content.innerText = '';
     document.getElementById('btn').addEventListener('click', () => predict());
 
@@ -23,7 +23,7 @@ console.log("Started");
         const img = await webcam.capture();
         // Make a prediction through the model on our image.
         const predictions = await coco.detect(img);
-        console.log('Predictions: ', predictions);
+        
         content.innerText = '';
         predictionList.style.display = 'block';
 
